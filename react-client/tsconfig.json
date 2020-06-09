@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "ES6"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "include": [
+    "src"
+  ],
+  "extends": "./paths.json",
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/ts-types/models"
+  ],
+  "path": {
+    "*": [
+      "typings/**/*"
+    ]
+  },
+  "typeRoots": [
+    "node_modules/@types",
+    "./typings/**/*"
+  ]
+}
