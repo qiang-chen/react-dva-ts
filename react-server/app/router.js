@@ -2,7 +2,7 @@
  * @description
  * @author cq
  * @Date 2020-06-04 19:46:32
- * @LastEditTime 2020-06-09 17:21:42
+ * @LastEditTime 2020-06-10 10:22:31
  * @LastEditors cq
  */
 'use strict';
@@ -17,4 +17,6 @@ module.exports = app => {
   const { router, controller } = app;
   console.log(123);
   router.get('/Invincible/home/list', controller.home.getList);
+  router.post('/Invincible/home/list/add', controller.home.addList);
+  router.delete('/Invincible/home/list/remove', controller.home.removeList);
 };

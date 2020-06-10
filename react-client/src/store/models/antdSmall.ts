@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-06-08 15:52:13
- * @LastEditTime 2020-06-09 17:55:20
+ * @LastEditTime 2020-06-09 20:46:43
  * @LastEditors cq
  */
 import { modelExtend } from '../common'
@@ -29,7 +29,6 @@ export default modelExtend<antdSmallState>({
   },
 
   effects: {
-    //查询tabel表格
     * query({ payload }: ReduxAction, { put, call, select }: ReduxSagaEffects) {
       const { homeList }: antdSmallState = yield select((_: RootState) => _[namespace]);
       const { success, data } = yield call(antdSmall.serverHomeList, { ...payload })
@@ -42,7 +41,18 @@ export default modelExtend<antdSmallState>({
         })
       }
     },
-
+    * addHomeList({ payload }: ReduxAction, { put, call, select }: ReduxSagaEffects) {
+      const { success, data } = yield call(antdSmall.serverAddHomeList, payload)
+      if (success === "ok" && data) {
+        return success
+      }
+    },
+    * removeHomeList({ payload }: ReduxAction, { put, call, select }: ReduxSagaEffects) {
+      const { success, data } = yield call(antdSmall.serverRemoveHomeList, payload)
+      if (success === "ok" && data) {
+        return success
+      }
+    },
   }
 })
 
