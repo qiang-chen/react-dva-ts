@@ -2,10 +2,10 @@
  * @description 
  * @author cq
  * @Date 2020-06-05 11:42:08
- * @LastEditTime 2020-06-05 17:37:53
+ * @LastEditTime 2020-06-12 17:36:20
  * @LastEditors cq
  */
-const { override, fixBabelImports, addWebpackAlias } = require('customize-cra')
+const { override, fixBabelImports, addWebpackAlias, addLessLoader} = require('customize-cra')
 const path = require('path')
 function resolve(dir) {
   return path.join(__dirname, '.', dir)
@@ -20,5 +20,10 @@ module.exports = override(
     libraryName: 'antd',
     libraryDirectory: 'es',
     style: 'css'
-  })
+  }),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: { '@primary-color': '#1DA57A' },
+    localIdentName: '[local]--[hash:base64:5]' // 自定义 CSS Modules 的 localIdentName
+  }),
 )

@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-05-28 17:42:55
- * @LastEditTime 2020-06-12 15:07:18
+ * @LastEditTime 2020-06-12 18:28:20
  * @LastEditors cq
  */
 import React, { useEffect, ReactNode, } from 'react'
@@ -30,7 +30,6 @@ const namespace = "app"
 //注意这里一定要注入history不然页面展示不出来  而且是结构出来的history
 function App({ dispatch, children, app, history }: AppProps & RootState & appState) {
   const { menuList } = app as appState;
-  console.log(menuList, history.location.pathname);
   useEffect(() => {
     dispatch({ type: `${namespace}/getMenuList` });
   }, [])
@@ -42,7 +41,7 @@ function App({ dispatch, children, app, history }: AppProps & RootState & appSta
       <Layout>
         <h1>我是头</h1>
         <Content style={{ margin: 20, backgroundColor: '#fff' }}>
-          {menuList.findIndex(item => item.menu_path === history.location.pathname) > -1 ? children : <NoFond/>}
+          {menuList.findIndex(item => item.menu_path === history.location.pathname) > -1 || history.location.pathname === "/" ? children : <NoFond />}
            我是页面主体部分
         </Content>
         {/* <Footer style={{ textAlign: 'center', color: '#ccc' }}>推荐使用谷歌浏览器,可以获得更佳页面操作体验</Footer> */}

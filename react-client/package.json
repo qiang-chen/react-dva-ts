@@ -20,6 +20,7 @@
     "dva": "^2.4.1",
     "dva-loading": "^3.0.20",
     "dva-model-extend": "^0.1.2",
+    "less-loader": "^6.1.1",
     "lodash": "^4.17.15",
     "mockjs": "^1.1.0",
     "react": "^16.13.1",
