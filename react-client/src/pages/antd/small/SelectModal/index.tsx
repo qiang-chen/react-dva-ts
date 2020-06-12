@@ -28,7 +28,6 @@ const SelectModal: FunctionComponent<SelectModalProps & FormProps> = ({ isVisabl
     form.setFieldsValue({ 'attnCourseIds': value })
   }
   const onFinish = (values: any) => {
-    console.log(values);
     onSubmit()
   }
   return (

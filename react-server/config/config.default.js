@@ -1,3 +1,10 @@
+/**
+ * @description
+ * @author cq
+ * @Date 2020-06-04 19:46:32
+ * @LastEditTime 2020-06-10 16:08:26
+ * @LastEditors cq
+ */
 
 
 'use strict';
@@ -35,7 +42,7 @@ module.exports = appInfo => {
       // 密码
       password: 'qiang123',
       // 数据库名
-      database: 'data_test',
+      database: 'data_text',
     },
     // 是否加载到 app 上，默认开启
     app: true,

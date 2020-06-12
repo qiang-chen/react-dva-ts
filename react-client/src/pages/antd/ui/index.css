@@ -1,0 +1,44 @@
+.aa{
+  position: relative;
+}
+.dian{
+  width: 100%;
+}
+.aa::after {
+  content: "";
+  width: 54px;
+  height: 54px;
+  background: rgba(255, 243, 201, 1);
+  border: 1px solid rgba(144, 111, 21, 1);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  margin: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.footer{
+  width: 100%;
+  height: 100px;
+  background: rgba(255, 243, 201, 1);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.fu{
+  position: relative;
+}
+.erweima{
+  width: 200px;
+  height: 200px;
+  background: red;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 36px;
+}

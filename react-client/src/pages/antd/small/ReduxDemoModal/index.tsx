@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-05-26 19:43:09
- * @LastEditTime 2020-06-09 20:47:47
+ * @LastEditTime 2020-06-11 13:40:20
  * @LastEditors cq
  */
 
@@ -23,7 +23,7 @@ type ReduxDemoModalProps = {
 const namespace = 'antdSmall';
 const ReduxDemoModal: FunctionComponent<ReduxDemoModalProps & antdSmall & RootState> = (props) => {
   const { isVisable, onSubmit, onClose, antdSmall, dispatch } = props;
-  const { homeList } = antdSmall;//结构model里面的state
+  const { homeList } = antdSmall as any;//结构model里面的state
   useEffect(() => {
     // fetch("/home/list")
     // homeLis
@@ -74,7 +74,7 @@ const ReduxDemoModal: FunctionComponent<ReduxDemoModalProps & antdSmall & RootSt
       <hr />
       <ul style={{ marginTop: "13px" }}>
         {
-          homeList && homeList.map(item => <li key={item.id}>
+          homeList && homeList.map((item: { id: number; title: React.ReactNode; text: React.ReactNode; }) => <li key={item.id}>
             <h5>
               {item.title}
             </h5>

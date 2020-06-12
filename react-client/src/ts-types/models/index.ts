@@ -2,7 +2,7 @@
  * @description ts规范
  * @author cq
  * @Date 2020-05-27 11:21:24
- * @LastEditTime 2020-06-09 14:04:46
+ * @LastEditTime 2020-06-11 19:18:48
  * @LastEditors cq
  */
 /**
@@ -13,9 +13,12 @@
  * @LastEditors cq
  */
 import antdSmallState from './antdSmall';
+import appState from './app';
 
-export type RootState = {
-  antdSmall: antdSmallState
-}
+export type RootState = Partial<{
+  antdSmall: antdSmallState,
+  app: appState
+  routing: any
+}>
 
 export default RootState

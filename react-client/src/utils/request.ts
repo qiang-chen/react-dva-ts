@@ -2,7 +2,7 @@
  * @description axios拦截请求
  * @author cq
  * @Date 2020-06-09 14:39:52
- * @LastEditTime 2020-06-09 20:21:45
+ * @LastEditTime 2020-06-11 18:05:26
  * @LastEditors cq
  */
 import axios from 'axios';
@@ -32,7 +32,6 @@ request.interceptors.request.use((config) => {
 request.interceptors.response.use(response => {
   return response.data;
 }, error => {
-  console.log(error)
   message.error("接口报错", error)
 })
 

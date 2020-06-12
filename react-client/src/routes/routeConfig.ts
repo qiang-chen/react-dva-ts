@@ -2,47 +2,57 @@
  * @description 
  * @author cq
  * @Date 2020-04-27 16:39:13
- * @LastEditTime 2020-06-05 18:01:01
+ * @LastEditTime 2020-06-11 17:10:31
  * @LastEditors cq
  */
 
 import React from 'react'
-const routeConfig: any[]=[
+const routeConfig: any[] = [
   {
-    path:"/pages/antd",
-    name: "antd组件演练",
-    children:[
-      {
-        path: "/pages/antd/small",
-        name: "demo区",
-        component: React.lazy(() =>
-          import('@/pages/antd/small/index'))
-        // component:HOME
-      },
-      {
-        path: "/pages/antd/ui",
-        name: "页面排版",
-        component: React.lazy(() =>
-          import('@/pages/antd/ui/index'))
-      }
-    ] 
-  }, {
-    path: "/pages/left",
-    name: "左侧测试demo",
-    children: [
-      {
-        path: "/pages/left/l",
-        name: "demo区2",
-        component: React.lazy(() =>
-          import('@/pages/antd/small/index'))
-      },
-      {
-        path: "/pages/left/uih",
-        name: "页面排版2",
-        component: React.lazy(() =>
-          import('@/pages/antd/ui/index'))
-      }
-    ]
+    path: "/pages/antd/small",
+    component: React.lazy(() =>
+      import('@/pages/antd/small/index'))
+  },
+  {
+    path: "/pages/antd/ui",
+    component: React.lazy(() =>
+      import('@/pages/antd/ui/index'))
+  },
+  {
+    path: "/pages/antd/menu1",
+    component: React.lazy(() =>
+      import('@/pages/antd/menu1/index'))
+  },
+  {
+    path: "/pages/antd/menu2",
+    component: React.lazy(() =>
+      import('@/pages/antd/menu2/index'))
+  },
+  {
+    path: "/pages/antd/menu3",
+    component: React.lazy(() =>
+      import('@/pages/antd/menu3/index'))
+  },
+  {
+    path: "/pages/antd/menu4",
+    component: React.lazy(() =>
+      import('@/pages/antd/menu4/index'))
+  },
+  {
+    path: "/pages/antd/menu5",
+    component: React.lazy(() =>
+      import('@/pages/antd/menu5/index'))
+  },
+  {
+    path: "/pages/left/l",
+    component: React.lazy(() =>
+      import('@/pages/antd/small/index'))
+  },
+  {
+    path: "/pages/left/uih",
+    name: "页面排版2",
+    component: React.lazy(() =>
+      import('@/pages/antd/ui/index'))
   }
 ]
 

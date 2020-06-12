@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /**
- * @description 
+ * @description 左侧导航条
  * @author cq
  * @Date 2020-05-25 14:39:55
- * @LastEditTime 2020-05-27 11:17:08
+ * @LastEditTime 2020-06-12 10:10:40
  * @LastEditors cq
  */
 import React, { FunctionComponent, useState, useEffect } from 'react';
@@ -11,21 +11,19 @@ import { Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Link, withRouter } from 'react-router-dom';
 import routeConfig from "../routes/routeConfig"
+import RootState from "@/ts-types/models"
+import { connect } from 'dva';
+import appState from "@/ts-types/models/app";
+import arrayToTree from "@/utils/arrayToTree"
 
 const { SubMenu } = Menu;
 type deepMenuProps = {
   location: any
 }
 
-const DeepMenu: FunctionComponent<deepMenuProps> = ({ location }) => {
-  // const [path, setPath] = useState(location.pathname);
+const DeepMenu: FunctionComponent<deepMenuProps & RootState> = ({ location, app }) => {
+  const { menuList } = app as appState;
   const [openKey, setOpenKey] = useState("");
-  // let path = props.location.pathname;
-  // const openKey = this.openKey;
-  /* 
-  根据menu的数据数组生成对应的标签数组
-  使用reduce() + 递归调用
-  */
   const findDefault = (routeConfig: any[], curObj: any): any => {
     for (let i = 0; i < routeConfig.length; i++) {
       if (routeConfig[i].children) {
@@ -37,14 +35,11 @@ const DeepMenu: FunctionComponent<deepMenuProps> = ({ location }) => {
         }
       }
     }
-    // routeConfig.forEach((item: any) => {
-
-    // })
   }
 
   useEffect(() => {
     const obj = findDefault(routeConfig, {});
-    if (!obj){
+    if (!obj) {
       return
     }
     if (Object.keys(obj)) {
@@ -54,12 +49,12 @@ const DeepMenu: FunctionComponent<deepMenuProps> = ({ location }) => {
 
   const getMenuNOdes = (menuList: any[]) => {
     // const path = props.location.pathname;
-    return menuList.reduce((pre, item) => {
+    return menuList && menuList.reduce((pre, item) => {
       // 向pre添加<Menu.Item>
       if (!item.children) {
         pre.push((
-          <Menu.Item key={item.path}>
-            <Link to={item.path}>
+          <Menu.Item key={item.menu_path}>
+            <Link to={item.menu_path}>
               <UserOutlined />
               <span>{item.name}</span>
             </Link>
@@ -68,7 +63,7 @@ const DeepMenu: FunctionComponent<deepMenuProps> = ({ location }) => {
       } else {
         pre.push((
           <SubMenu
-            key={item.path}
+            key={item.menu_path}
             title={
               <span>
                 <UserOutlined />
@@ -82,25 +77,6 @@ const DeepMenu: FunctionComponent<deepMenuProps> = ({ location }) => {
       return pre;
     }, []);
   }
-  /* 判断当前登录用户对item是否有权限 */
-  // const hasAuth = (item: { children?: any; key?: any; isPublic?: any; }) => {
-  //   const { key, isPublic } = item;
-  //   // const menus = memoryUtils.user.role.menus;
-  //   // const username = memoryUtils.user.username;
-
-  //   /* 
-  //   需要判断的情况:
-  //   1.如果当前用户是admin
-  //   2.如果当前item是公开的
-  //   3.当前用户有此item的权限:key有没有在menus中
-  //   */
-  //   // if (username === 'admin' || isPublic || menus.indexOf(key) !== -1) {
-  //   //   return true;
-  //   // } else if (item.children) {  //4.如果当前用户有此item的某个子item的权限
-  //   //   return !!item.children.find(child => menus.indexOf(child.key) !== -1)
-  //   // }
-  //   return false;
-  // }
   return (
     <>
       <Menu
@@ -109,11 +85,18 @@ const DeepMenu: FunctionComponent<deepMenuProps> = ({ location }) => {
         defaultSelectedKeys={[location.pathname]}
         defaultOpenKeys={[openKey]}
       >
-        {getMenuNOdes(routeConfig)}
+        {/* {getMenuNOdes(filterMenu(routeConfig, menuList,[]))}*/}
+        {getMenuNOdes(arrayToTree(menuList, 'id', 'pid'))}
       </Menu>
     </>
   );
 }
 
 
-export default withRouter(DeepMenu);
+const mapStateToProps = ({
+  app,
+}: RootState) => ({
+  app
+})
+
+export default connect(mapStateToProps)(withRouter(DeepMenu))

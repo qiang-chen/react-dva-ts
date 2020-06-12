@@ -2,12 +2,13 @@
  * @description 
  * @author cq
  * @Date 2020-05-28 17:42:09
- * @LastEditTime 2020-06-09 17:04:45
+ * @LastEditTime 2020-06-11 19:48:07
  * @LastEditors cq
  */
 
 import dva from "dva";
-import App from "./App"
+// import App from "./App"
+// import Route from "./route"
 
 
 // import createLoading from 'dva-loading';
@@ -40,7 +41,7 @@ require("./store").default.forEach((key:any) => app.model(key.default))
 // app.model(require("@/store/user.js").default)
 // createModel(app)
 
-
-app.router(App)
+// app.router(Route)
+app.router(require('./App').default)
 
 app.start('#root');
