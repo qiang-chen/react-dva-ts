@@ -2,59 +2,55 @@
  * @description 路由表循环
  * @author cq
  * @Date 2020-05-25 15:16:47
- * @LastEditTime 2020-06-11 20:29:48
+ * @LastEditTime 2020-06-12 14:57:13
  * @LastEditors cq
  */
-import React, { FunctionComponent } from 'react';
-import NoFind from "@/pages/NoFond/index"
+import React, { FunctionComponent, Suspense } from 'react';
+import NoFond from "@/pages/NoFond/index"
 import routeConfig from "./routeConfig"
 import RootState from "@/ts-types/models"
 import { connect } from 'dva';
 import dynamic from 'dva/dynamic'
-import { routerRedux, Switch, Route, } from 'dva/router'
-import appState from "@/ts-types/models/app"
-import filterRoute from "@/utils/filterRoute"
-import Cmp from './Cmp'
+import { routerRedux, Switch, Route, Router, } from 'dva/router'
+import App from "@/App"
+import { History } from 'history';
 
+const { ConnectedRouter } = routerRedux
 type RouteViewProps = {
-  pathname: any
+  history: History
+  app: any
 }
 
-const RouteView: FunctionComponent<RouteViewProps & RootState> = ({ app, pathname }) => {
-  // const { menuList } = app as appState;
 
-  console.log(222);
-  
+const RouteView: FunctionComponent<RouteViewProps> = (props) => {
+  const { history, app } = props;
+  console.log(history);
   return (
-    <Switch>
-      {/* <Redirect exact from="/" to="/pages/antd/small"></Redirect> */}
-      {routeConfig.map((item: any) => {
-        return (
-          <Route
-            path={item.path}
-            key={item.path}
-            exact
-            render={(props) => {
-              console.log(111);
-              console.log(item.path);
-              // return <Cmp xxxx={item.path} />
-              return <item.component {...props}></item.component>
-            }}
-          ></Route>
-        )
-      })}
-      <Route component={NoFind}></Route>
-    </Switch>
+    <ConnectedRouter history={history as History}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <App>
+          <Switch>
+            {/* <Redirect exact from="/" to="/pages/antd/small"></Redirect> */}
+            {routeConfig.map((item: any) => {
+              return (
+                <Route
+                  path={item.path}
+                  key={item.path}
+                  exact
+                  render={(props) => {
+                    return <item.component {...props}></item.component>
+                  }}
+                ></Route>
+              )
+            })}
+            <Route component={NoFond}></Route>
+          </Switch>
+        </App>
+      </Suspense>
+      
+    </ConnectedRouter>
   );
 }
 
-// const mapStateToProps = ({
-//   app,
-//   routing,
-// }: RootState) => ({
-//   app,
-//     pathname: routing.location.pathname
-// })
 
-// export default connect(mapStateToProps)(RouteView)
 export default RouteView

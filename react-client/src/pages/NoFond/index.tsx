@@ -2,14 +2,14 @@
  * @description 
  * @author cq
  * @Date 2020-05-26 10:25:18
- * @LastEditTime 2020-05-26 11:38:22
+ * @LastEditTime 2020-06-12 14:56:46
  * @LastEditors cq
  */
 import React, { FunctionComponent } from 'react';
-type NoFindProps = {
+type NoFondProps = {
 }
 
-const NoFind: FunctionComponent<NoFindProps> = () => {
+const NoFond: FunctionComponent<NoFondProps> = () => {
  
   return (
     <div>
@@ -17,4 +17,4 @@ const NoFind: FunctionComponent<NoFindProps> = () => {
     </div>
   );
 }
-export default NoFind
+export default NoFond

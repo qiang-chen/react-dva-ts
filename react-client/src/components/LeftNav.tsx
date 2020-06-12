@@ -3,13 +3,13 @@
  * @description 左侧导航条
  * @author cq
  * @Date 2020-05-25 14:39:55
- * @LastEditTime 2020-06-12 10:10:40
+ * @LastEditTime 2020-06-12 14:41:56
  * @LastEditors cq
  */
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter} from "dva/router"
 import routeConfig from "../routes/routeConfig"
 import RootState from "@/ts-types/models"
 import { connect } from 'dva';
