@@ -2,25 +2,21 @@
  * @description 
  * @author cq
  * @Date 2020-05-28 17:42:55
- * @LastEditTime 2020-06-12 14:57:45
+ * @LastEditTime 2020-06-12 15:07:18
  * @LastEditors cq
  */
-import React, { useEffect, ReactNode } from 'react'
-import { Router, routerRedux, Switch, Route, withRouter } from "dva/router"
+import React, { useEffect, ReactNode, } from 'react'
+import { withRouter } from "dva/router"
 import { Layout } from 'antd';
 import LeftNav from "@/components/LeftNav"
-import RouteView from '@/routes/RouteView';
 import { Dispatch } from '@/ts-types/dva';
-import "./app.css"
-import filterRoute from './utils/filterRoute';
-import routeConfig from './routes/routeConfig';
 import { connect } from 'dva';
 import { RootState } from '@/ts-types/models';
 import appState from '@/ts-types/models/app';
 import { History } from 'history';
 import NoFond from "@/pages/NoFond/index"
+import "./app.css"
 
-const { ConnectedRouter } = routerRedux
 const { Sider, Content } = Layout;
 
 type AppProps = {
