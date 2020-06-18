@@ -2,7 +2,7 @@
  * @description 路由表循环
  * @author cq
  * @Date 2020-05-25 15:16:47
- * @LastEditTime 2020-06-12 18:26:45
+ * @LastEditTime 2020-06-16 17:33:22
  * @LastEditors cq
  */
 import React, { FunctionComponent, Suspense } from 'react';
@@ -23,8 +23,8 @@ const RouteView: FunctionComponent<RouteViewProps> = (props) => {
   const { history } = props;
   return (
     <ConnectedRouter history={history as History}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <App>
+      <App>
+        <Suspense fallback={<div>Loading...</div>}>
           <Switch>
             <Redirect exact from="/" to="/pages/antd/small" />
             {routeConfig.map((item: any) => {
@@ -40,8 +40,8 @@ const RouteView: FunctionComponent<RouteViewProps> = (props) => {
             })}
             <Route component={NoFond}></Route>
           </Switch>
-        </App>
-      </Suspense>
+        </Suspense>
+      </App>
     </ConnectedRouter>
   );
 }
