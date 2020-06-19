@@ -3,26 +3,24 @@
  * @description 左侧导航条
  * @author cq
  * @Date 2020-05-25 14:39:55
- * @LastEditTime 2020-06-12 14:41:56
+ * @LastEditTime 2020-06-19 17:08:41
  * @LastEditors cq
  */
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { Link, withRouter} from "dva/router"
+import { Link,withRouter } from "dva/router"
 import routeConfig from "../routes/routeConfig"
 import RootState from "@/ts-types/models"
-import { connect } from 'dva';
-import appState from "@/ts-types/models/app";
 import arrayToTree from "@/utils/arrayToTree"
 
 const { SubMenu } = Menu;
 type deepMenuProps = {
   location: any
+  menuList: any[]
 }
 
-const DeepMenu: FunctionComponent<deepMenuProps & RootState> = ({ location, app }) => {
-  const { menuList } = app as appState;
+const DeepMenu: FunctionComponent<deepMenuProps & RootState> = ({ location, menuList }) => {
   const [openKey, setOpenKey] = useState("");
   const findDefault = (routeConfig: any[], curObj: any): any => {
     for (let i = 0; i < routeConfig.length; i++) {
@@ -92,11 +90,4 @@ const DeepMenu: FunctionComponent<deepMenuProps & RootState> = ({ location, app 
   );
 }
 
-
-const mapStateToProps = ({
-  app,
-}: RootState) => ({
-  app
-})
-
-export default connect(mapStateToProps)(withRouter(DeepMenu))
+export default DeepMenu

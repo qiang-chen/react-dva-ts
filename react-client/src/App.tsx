@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-05-28 17:42:55
- * @LastEditTime 2020-06-12 18:28:20
+ * @LastEditTime 2020-06-19 17:00:01
  * @LastEditors cq
  */
 import React, { useEffect, ReactNode, } from 'react'
@@ -36,7 +36,7 @@ function App({ dispatch, children, app, history }: AppProps & RootState & appSta
   return <>
     <Layout style={{ minHeight: '100%' }}>
       <Sider>
-        <LeftNav ></LeftNav>
+        <LeftNav location={history.location} menuList={menuList}></LeftNav>
       </Sider>
       <Layout>
         <h1>我是头</h1>
