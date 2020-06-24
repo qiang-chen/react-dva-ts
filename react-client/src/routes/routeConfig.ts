@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-04-27 16:39:13
- * @LastEditTime 2020-06-19 17:22:26
+ * @LastEditTime 2020-06-24 14:00:17
  * @LastEditors cq
  */
 
@@ -53,6 +53,12 @@ const routeConfig: any[] = [
     name: "页面排版2",
     component: React.lazy(() =>
       import('@/pages/antd/ui/index'))
+  },
+  {
+    path: "/pages/antd/indexedDB",
+    name: "indexedDB测试",
+    component: React.lazy(() =>
+      import('@/pages/antd/indexedDB/index'))
   }
 ]
 
