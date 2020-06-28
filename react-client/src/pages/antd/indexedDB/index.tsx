@@ -2,7 +2,7 @@
  * @description indexedDB
  * @author cq
  * @Date 2020-06-24 11:03:24
- * @LastEditTime 2020-06-24 17:28:55
+ * @LastEditTime 2020-06-28 14:55:03
  * @LastEditors cq
  */
 
@@ -41,15 +41,18 @@ const IndexedDBDemo: FunctionComponent<IndexedDBDemoProps> = () => {
     //);
 
     // 新建对象仓库以后，下一步可以新建索引
+    //onupgradeneeded  只触发一次  就是每次新建数据库的时候触发
     request.onupgradeneeded = function (event: any) {
       db = event.target.result;
       var objectStore;
-      console.log(db.objectStoreNames.contains('person'), "进不来吗");
       if (!db.objectStoreNames.contains('person')) {
-        console.log(1111);
+        //创建一张person的表  主键叫id
         objectStore = db.createObjectStore('person', { keyPath: 'id' });
         // IDBObject.createIndex()的三个参数
         //分别为索引名称、索引所在的属性、配置对象（说明该属性是否包含重复的值）。
+        console.log(db);
+        // db.transaction((["person"]), "readwrite").objectStore("person")
+        // .add({id:1,age:13,name:"chenqiang"})
         objectStore.createIndex('name', 'name', { unique: false });
         objectStore.createIndex('email', 'email', { unique: true });
         add(event);
@@ -72,6 +75,7 @@ const IndexedDBDemo: FunctionComponent<IndexedDBDemoProps> = () => {
     request.onerror = function (event) {
       console.log('数据库打开报错');
     };
+    //触发多次  每次打开都会触发一次
     request.onsuccess = function (event) {
       db = request.result;
       console.log('数据库打开成功', request);
