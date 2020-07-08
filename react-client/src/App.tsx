@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-05-28 17:42:55
- * @LastEditTime 2020-06-24 14:11:24
+ * @LastEditTime 2020-07-08 13:39:36
  * @LastEditors cq
  */
 import React, { useEffect, ReactNode, } from 'react'
@@ -42,7 +42,6 @@ function App({ dispatch, children, app, history }: AppProps & RootState & appSta
         <h1>我是头</h1>
         <Content style={{ margin: 20, backgroundColor: '#fff' }}>
           {menuList.findIndex(item => item.menu_path === history.location.pathname) > -1 || history.location.pathname === "/" ? children : <NoFond />}
-           我是页面主体部分
         </Content>
         {/* <Footer style={{ textAlign: 'center', color: '#ccc' }}>推荐使用谷歌浏览器,可以获得更佳页面操作体验</Footer> */}
       </Layout>

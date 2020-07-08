@@ -2,7 +2,7 @@
  * @description 入口全局model
  * @author cq
  * @Date 2020-06-10 17:22:46
- * @LastEditTime 2020-06-28 15:11:00
+ * @LastEditTime 2020-07-07 18:04:04
  * @LastEditors cq
  */
 
@@ -20,6 +20,7 @@ export default modelExtend<appState>({
       { menu_path: "/pages/antd", name: "demo演练", pid: 0, id: 1 },
       { menu_path: "/pages/left", name: "测试二号", pid: 0, id: 2 },
       { menu_path: "/pages/antd/small", name: "antd演练", pid: 1, id: 3 },
+      { menu_path: "/pages/antd/tabel", name: "tabel测试", pid: 1, id: 12 },
       { menu_path: "/pages/antd/ui", name: "UI测试", pid: 1, id: 4 },
       { menu_path: "/pages/antd/indexedDB", name: "indexedDB测试", pid: 1, id: 10 },
       { menu_path: "/pages/antd/dexie", name: "dexie测试", pid: 1, id: 11 },

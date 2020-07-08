@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-04-27 16:39:13
- * @LastEditTime 2020-06-28 15:10:14
+ * @LastEditTime 2020-07-08 13:39:14
  * @LastEditors cq
  */
 
@@ -65,6 +65,12 @@ const routeConfig: any[] = [
     name: "dexie测试",
     component: React.lazy(() =>
       import('@/pages/antd/dexie/index'))
+  },
+  {
+    path: "/pages/antd/tabel",
+    name: "tabel测试",
+    component: React.lazy(() =>
+      import('@/pages/antd/tabel/index'))
   }
 ]
 
