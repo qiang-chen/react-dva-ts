@@ -2,7 +2,7 @@
  * @description 虚拟列表
  * @author cq
  * @Date 2020-06-28 15:07:52
- * @LastEditTime 2020-07-08 14:31:01
+ * @LastEditTime 2020-07-08 15:17:03
  * @LastEditors cq
  */
 
@@ -28,7 +28,7 @@ const dataSource = Array.from(
     key,
   }),
 );
-
+console.log(dataSource);
 const scroll = {
   y: 300,
   x: '100vw',
@@ -77,7 +77,7 @@ const VirtualTable: FunctionComponent<VirtualTableProps> = ({ isVisable, onClose
   useEffect(() => resetVirtualGrid, []);
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
-  const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
+  const renderVirtualList = (rawData: any[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
 
     return (
@@ -97,16 +97,19 @@ const VirtualTable: FunctionComponent<VirtualTableProps> = ({ isVisable, onClose
           onScroll({ scrollLeft });
         }}
       >
-        {({ columnIndex, rowIndex, style }) => (
-          <div
-            className={classNames('virtual-table-cell', {
-              'virtual-table-cell-last': columnIndex === mergedColumns.length - 1,
-            })}
-            style={style}
-          >
-            {rawData[rowIndex][mergedColumns[columnIndex].dataIndex]}
-          </div>
-        )}
+        {({ columnIndex, rowIndex, style }) => {
+          return (
+            <div
+              className={classNames('virtual-table-cell', {
+                'virtual-table-cell-last': columnIndex === mergedColumns.length - 1,
+              })}
+              style={style}
+            >
+              {rawData[rowIndex][mergedColumns[columnIndex].dataIndex]}
+            </div>
+          )
+        }
+        }
       </Grid>
     );
   };
@@ -115,7 +118,7 @@ const VirtualTable: FunctionComponent<VirtualTableProps> = ({ isVisable, onClose
     <Modal
       title="tabel展开子项滑动"
       visible={isVisable}
-      width={1150}
+      width={1250}
       maskClosable={true}
       onCancel={onClose}
       onOk={onSubmit}
@@ -126,8 +129,9 @@ const VirtualTable: FunctionComponent<VirtualTableProps> = ({ isVisable, onClose
         }}
       >
         <Table
-          {...props}
-          className={classNames(className, 'virtual-table')}
+          scroll={scroll}
+          dataSource={dataSource}
+          className={classNames('virtual-table')}
           columns={mergedColumns}
           pagination={false}
           components={{
