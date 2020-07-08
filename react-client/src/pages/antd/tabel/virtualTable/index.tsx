@@ -2,7 +2,7 @@
  * @description 虚拟列表
  * @author cq
  * @Date 2020-06-28 15:07:52
- * @LastEditTime 2020-07-08 14:25:11
+ * @LastEditTime 2020-07-08 14:31:01
  * @LastEditors cq
  */
 
@@ -54,7 +54,7 @@ const VirtualTable: FunctionComponent<VirtualTableProps> = ({ isVisable, onClose
   });
 
   const gridRef = useRef<any>();
-  const [connectObject] = useState<any>(() => {
+  const [connectObject] = useState(() => {
     const obj = {};
     Object.defineProperty(obj, 'scrollLeft', {
       get: () => null,
