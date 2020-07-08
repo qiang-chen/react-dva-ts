@@ -59,6 +59,7 @@
   },
   "proxy": "http://127.0.0.1:7002",
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
     "cross-env": "^7.0.2"
   }
 }

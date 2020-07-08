@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/react-window": "^1.8.2",
+    "classnames": "^2.2.6",
+    "rc-resize-observer": "^0.2.3",
+    "react-window": "^1.8.5"
+  }
+}
