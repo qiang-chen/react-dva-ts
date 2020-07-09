@@ -2,7 +2,7 @@
  * @description Tabel的各种使用
  * @author cq
  * @Date 2020-07-08 11:31:26
- * @LastEditTime 2020-07-08 14:49:20
+ * @LastEditTime 2020-07-09 10:00:59
  * @LastEditors cq
  */
 
@@ -12,6 +12,7 @@ import React, { FunctionComponent, useState, useCallback } from 'react'
 import { Button } from 'antd';
 import OpenChildTabel from "./openChildTabel"
 import VirtualTable from "./virtualTable"
+import UseReducerdemo from "./useReducerdemo"
 
 type TabelDemoProps = {
 
@@ -43,6 +44,7 @@ const TabelDemo: FunctionComponent<TabelDemoProps> = () => {
         onSubmit={handleSubmit}
         onClose={handleClose}
       />
+      <UseReducerdemo/>
     </>
   )
 }
