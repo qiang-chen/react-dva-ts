@@ -25,7 +25,7 @@
     "dva-model-extend": "^0.1.2",
     "less": "^3.11.3",
     "less-loader": "5.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mockjs": "^1.1.0",
     "rc-resize-observer": "^0.2.3",
     "react": "^16.13.1",
