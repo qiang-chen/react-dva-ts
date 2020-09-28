@@ -2,10 +2,10 @@
  * @description 用来处理防抖值的 Hook。
  * @author cq
  * @Date 2020-09-27 17:25:00
- * @LastEditTime 2020-09-28 09:59:49
+ * @LastEditTime 2020-09-28 10:05:47
  * @LastEditors cq
  */
-import React, { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 
