@@ -2,13 +2,14 @@
  * @description 
  * @author cq
  * @Date 2020-05-26 10:25:18
- * @LastEditTime 2020-09-28 15:22:57
+ * @LastEditTime 2020-09-28 17:12:57
  * @LastEditors cq
  */
 import React, { FunctionComponent, useEffect } from 'react';
 import { arr } from "./utils/arr"
 import DebounceDemo from "./component/DebounceDemo"
 import DebounceFnDemo from "./component/DebounceFnDemo"
+import ThrottleDemo from "./component/ThrottleDemo"
 
 
 type AhooksProps = {
@@ -27,6 +28,8 @@ const Ahooks: FunctionComponent<AhooksProps> = () => {
       <DebounceDemo/>
       <hr/>
       <DebounceFnDemo/>
+      <hr/>
+      <ThrottleDemo/>
     </div>
   );
 }
