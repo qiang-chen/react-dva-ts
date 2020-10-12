@@ -2,13 +2,13 @@
  * @description 节流函数
  * @author cq
  * @Date 2020-09-28 17:03:29
- * @LastEditTime 2020-09-29 11:15:09
+ * @LastEditTime 2020-10-12 14:48:28
  * @LastEditors cq
  */
 
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { useThrottle } from 'ahooks';
-import myThrottle from "@/utils/throttle"
+import myThrottle from "@/utils/myThrottleFn"
 import MyThrottle from "@/components/MyThrottle"
 
 
@@ -26,6 +26,9 @@ const ThrottleDemo: FunctionComponent<ThrottleDemoProps> = () => {
   return (
     <div>
       <h1>节流</h1>
+      <h1 style={{color:"red"}}>
+        第二个有问题
+      </h1>
       <input
         value={value}
         onChange={(e) => setValue(e.target.value)}

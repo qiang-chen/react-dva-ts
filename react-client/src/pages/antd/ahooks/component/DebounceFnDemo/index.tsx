@@ -36,8 +36,6 @@ const DebounceFnDemo: FunctionComponent<DebounceFnDemoProps> = () => {
     },
   )
 
-  console.log(run2, "run2")
-
   return (
     <div>
       <p style={{ marginTop: 16 }}> Clicked count: {count} </p>
