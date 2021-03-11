@@ -2,7 +2,7 @@
  * @description 入口全局model
  * @author cq
  * @Date 2020-06-10 17:22:46
- * @LastEditTime 2020-09-18 16:27:16
+ * @LastEditTime 2021-03-11 14:20:55
  * @LastEditors cq
  */
 
@@ -25,11 +25,11 @@ export default modelExtend<appState>({
       { menu_path: "/pages/antd/ui", name: "UI测试", pid: 1, id: 4 },
       { menu_path: "/pages/antd/indexedDB", name: "indexedDB测试", pid: 1, id: 10 },
       { menu_path: "/pages/antd/dexie", name: "dexie测试", pid: 1, id: 11 },
+      { menu_path: "/pages/antd/callback", name: "useCallback", pid: 1, id: 9 },
       { menu_path: "/pages/antd/menu1", name: "测试页面1", pid: 1, id: 5 },
       { menu_path: "/pages/antd/menu2", name: "测试页面2", pid: 2, id: 6 },
       { menu_path: "/pages/antd/menu3", name: "测试页面3", pid: 2, id: 7 },
       { menu_path: "/pages/antd/menu4", name: "测试页面4", pid: 1, id: 8 },
-      { menu_path: "/pages/antd/menu5", name: "测试页面5", pid: 1, id: 9 },
     ]
   },
   subscriptions: {

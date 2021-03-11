@@ -2,7 +2,7 @@
  * @description 
  * @author cq
  * @Date 2020-04-27 16:39:13
- * @LastEditTime 2020-09-27 15:59:31
+ * @LastEditTime 2021-03-11 14:20:28
  * @LastEditors cq
  */
 
@@ -39,9 +39,9 @@ const routeConfig: any[] = [
       import('@/pages/antd/menu4/index'))
   },
   {
-    path: "/pages/antd/menu5",
+    path: "/pages/antd/callback",
     component: React.lazy(() =>
-      import('@/pages/antd/menu5/index'))
+      import('@/pages/antd/callback/index'))
   },
   {
     path: "/pages/left/l",
